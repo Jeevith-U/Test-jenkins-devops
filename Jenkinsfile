@@ -37,6 +37,14 @@ pipeline{
 	}
 
 	
+//post helps us to run some steps after the pipeline execution
+//always, success, and failure are conditions that determine when the steps inside them will be executed
+//always will run regardless of the pipeline's success or failure
+//success will run only if the pipeline is successful
+//failure will run only if the pipeline fails
+//You can add more conditions like unstable, aborted, etc.
+//You can also use post to send notifications, clean up resources, or perform any other necessary actions after the pipeline execution
+
 post{
 	always{
 		echo 'This line will always run and it will get print'
@@ -51,3 +59,4 @@ post{
 	}
 }
 }
+
