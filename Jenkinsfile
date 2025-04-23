@@ -37,3 +37,16 @@ pipeline{
 	}
 }
 
+post{
+	always{
+		echo 'This line will always run and it will get print'
+	}
+
+	success{
+		echo 'This line will run only if the pipeline is successful'
+	}
+
+	failure{
+		echo 'This line will run only if the pipeline fails'
+	}
+}
