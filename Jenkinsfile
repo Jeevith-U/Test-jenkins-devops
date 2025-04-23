@@ -17,7 +17,7 @@
 
 
 pipeline{
-	agent {docker {image 'maven:3.6.3' }} // This line specifies that the pipeline will run in a Docker container using the Maven image with JDK 11
+	agent {docker {image '3.9.9' }} // This line specifies that the pipeline will run in a Docker container using the Maven image with JDK 11
 	stages{
 		stage('Build'){
 			steps{
