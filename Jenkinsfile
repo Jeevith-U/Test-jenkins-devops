@@ -20,7 +20,7 @@ pipeline{
 
     agent {
         docker {
-            image 'node:13.8' 
+            image 'node:18-alpine' // Runs the pipeline in a Node.js Docker container
         }
     }
 
