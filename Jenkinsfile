@@ -20,6 +20,7 @@ pipeline{
 
     // agent {docker{image 'maven:3.6.3'}}
     agent any
+
     environment{
         dockerHome = tool 'Dockerjee'
         mavenHome = tool 'Mavenjee'
@@ -27,7 +28,7 @@ pipeline{
     }
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
 				
                 echo 'Building..'
@@ -41,15 +42,21 @@ pipeline{
             }
         }
 
+        stage('Compile'){
+            steps{
+                sh 'mvn clean compile'
+            }
+        }
+
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'mvn test'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying..'
+                sh 'mvn failsafe:integration-test'
             }
         }
     }
@@ -78,4 +85,3 @@ post{
 	}
 }
 }
-
