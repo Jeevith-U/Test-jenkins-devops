@@ -30,7 +30,7 @@ pipeline{
                 echo "BUILD PATH - $PATH"
                 echo "BUILD_NUMBER - $env.BUILD_NUMBER "
                 echo "build_id : $env.build_id"
-                echo "BUILD_NAME : $env.BUILD_NAME"
+                echo "JOB_NAME : $env.JOB_NAME"
                 echo "BUILD_TAG : $env.BUILD_TAG"
                 echo "BUILD_URL : $env.BUILD_URL"
             }
