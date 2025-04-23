@@ -17,24 +17,33 @@
 
 
 pipeline{
-	agent {docker {image '3.9.9' }} // This line specifies that the pipeline will run in a Docker container using the Maven image with JDK 11
-	stages{
-		stage('Build'){
-			steps{
-				echo 'Building..'
-			}
-		}
-		stage('Test'){
-			steps{
-				echo 'Testing..'
-			}
-		}
-		stage('Deploy'){
-			steps{
-				echo 'Deploying..'
-			}
-		}
-	}
+
+    agent {
+        docker {
+            image 'maven:3.9.9' // Correct Docker image tag
+        }
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying..'
+            }
+        }
+    }
+
 
 	
 //post helps us to run some steps after the pipeline execution
