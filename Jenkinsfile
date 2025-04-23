@@ -20,13 +20,14 @@ pipeline{
 
     agent {
         docker {
-            image 'maven:3.9.9' // Correct Docker image tag
+            image 'node:13.8' 
         }
     }
 
     stages {
         stage('Build') {
             steps {
+				sh 'node --version'
                 echo 'Building..'
             }
         }
