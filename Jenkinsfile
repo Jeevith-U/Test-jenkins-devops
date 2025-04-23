@@ -35,8 +35,8 @@ pipeline{
 			}
 		}
 	}
-}
 
+	
 post{
 	always{
 		echo 'This line will always run and it will get print'
@@ -49,4 +49,5 @@ post{
 	failure{
 		echo 'This line will run only if the pipeline fails'
 	}
+}
 }
