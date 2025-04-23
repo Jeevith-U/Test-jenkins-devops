@@ -27,7 +27,7 @@ pipeline{
 				
                 echo 'Building..'
 
-                echo "BUILD PATH - $$PATH"
+                echo "BUILD PATH - $PATH"
                 echo "BUILD_NUMBER - $env.BUILD_NUMBER "
                 echo "build_id : $env.build_id"
                 echo "BUILD_NAME : $env.BUILD_NAME"
