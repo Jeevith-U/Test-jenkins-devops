@@ -18,17 +18,21 @@
 
 pipeline{
 
-    agent {
-        docker {
-            image 'node:18-alpine' // Runs the pipeline in a Node.js Docker container
-        }
-    }
+    // agent {docker{image 'maven:3.6.3'}}
+    agent any
 
     stages {
         stage('Build') {
             steps {
-				sh 'node --version'
+				
                 echo 'Building..'
+
+                echo "BUILD PATH - $$PATH"
+                echo "BUILD_NUMBER - $env.BUILD_NUMBER "
+                echo "build_id : $env.build_id"
+                echo "BUILD_NAME : $env.BUILD_NAME"
+                echo "BUILD_TAG : $env.BUILD_TAG"
+                echo "BUILD_URL : $env.BUILD_URL"
             }
         }
 
