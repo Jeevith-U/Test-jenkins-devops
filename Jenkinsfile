@@ -59,6 +59,25 @@ pipeline{
                 sh 'mvn failsafe:integration-test'
             }
         }*/
+
+        stage('Build docker image'){
+            steps{
+                script{
+                    dockerimage = docker.build("jeevith2/mmv3-currency-exchange-service : ${BUILD_TAG}")
+                }
+            }
+        }
+
+         stage('Push docker image'){
+            steps{
+                script{
+                    docker.withRegistry('', 'dockerhub'){
+                    dockerimage.push() ;
+                    dockerimage.push('latest') ;
+                    }
+                }
+            }
+        }
     }
 
 
